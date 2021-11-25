@@ -40,7 +40,7 @@ add the openswapkey.key
 close device
 
 `# cryptsetup luksOpen --key-file /etc/initcpio/keys/openswapkey.key /dev/sdX1`  
-open device with a openswapkey.key
+open device with the openswapkey.key
 
 ### Persistent block device naming
 `# ls -l /dev/disk/by-uuid`  
