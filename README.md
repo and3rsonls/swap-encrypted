@@ -39,7 +39,7 @@ add the openswapkey.key
 `# cryptsetup luksClose /dev/mapper/cryptswap`  
 close device
 
-`# cryptsetup luksOpen --key-file /etc/initcpio/keys/openswapkey.key /dev/sdX1`  
+`# cryptsetup luksOpen --key-file /etc/initcpio/keys/openswapkey.key /dev/sdX1 cryptswap`  
 open device with the openswapkey.key
 
 ### Persistent block device naming
@@ -77,7 +77,7 @@ run_hook ()
 {
 mkdir key_device
 mount /dev/disk/by-uuid/XXXXXXXX-3333-3333-3333-XXXXXXXXXXXX key_device
-cryptsetup open --key-file key_device/etc/initcpio/keys/openswapkey.key /dev/disk/by-uuid/XXXXXXXX-1111-1111-1111-XXXXXXXXXXXX cryptswap
+cryptsetup luksOpen --key-file key_device/etc/initcpio/keys/openswapkey.key /dev/disk/by-uuid/XXXXXXXX-1111-1111-1111-XXXXXXXXXXXX cryptswap
 umount key_device
 }
 ~~~
