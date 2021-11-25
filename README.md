@@ -55,7 +55,7 @@ HOOKS=(consolefont base udev openswap encrypt resume lvm2 keyboard keymap autode
 ~~~
 
 `# mkinitcpio -p linux-lts`  
-for apply change
+for apply change to linux kernel
 
 ### Recreate bootloader with GRUB
 `# vim /etc/default/grub`  
