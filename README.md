@@ -27,7 +27,7 @@ proper permissions and make it real hard to accidentally do something to these f
 `# cryptsetup luksFormat /dev/sdX1`  
 create luks container
 
-`# cryptsetup open /dev/sdX1 cryptswap`  
+`# cryptsetup luksOpen /dev/sdX1 cryptswap`  
 open container
 
 `# mkswap /dev/mapper/cryptswap`  
@@ -39,7 +39,7 @@ add the openswapkey.key
 `# cryptsetup luksClose /dev/mapper/cryptswap`  
 close device
 
-`# cryptsetup open --key-file /etc/initcpio/keys/openswapkey.key /dev/sdX1`  
+`# cryptsetup luksOpen --key-file /etc/initcpio/keys/openswapkey.key /dev/sdX1`  
 open device with a openswapkey.key
 
 ### Persistent block device naming
