@@ -14,7 +14,7 @@ in this case the [ArchLinux](https://wiki.archlinux.org/title/Installation_guide
 umount swap device
 
 `# mkdir -p /etc/initcpio/keys`  
-make a dir
+make a dir to key
 
 `# dd if=/dev/random of=/etc/initcpio/keys/openswapkey.key bs=512 count=8`  
 make a key
@@ -31,16 +31,16 @@ create luks container
 open container
 
 `# mkswap /dev/mapper/cryptswap`  
-make swap
+make file system swap
 
 `# cryptsetup luksAddKey /dev/sdX1 /etc/initcpio/keys/openswapkey.key`  
-add cryptkey
+add the openswapkey.key
 
 `# cryptsetup luksClose /dev/mapper/cryptswap`  
 close device
 
 `# cryptsetup open --key-file /etc/initcpio/keys/openswapkey.key /dev/sdX1`  
-open device with a key
+open device with a openswapkey.key
 
 ### Persistent block device naming
 `# ls -l /dev/disk/by-uuid`  
@@ -49,13 +49,13 @@ schemes for persistent naming by-uuid
 ### Recreate initial ramdisk
 `# vim /etc/mkinitcpio.conf`  
 adding **openswap** and **encrypt**  
-set hooks for [ramdisk](https://wiki.archlinux.org/title/Mkinitcpio) to  
+set hooks for [ramdisk](https://wiki.archlinux.org/title/Mkinitcpio)  
 ~~~bash
 HOOKS=(consolefont base udev openswap encrypt resume lvm2 keyboard keymap autodetect modconf block fsck filesystems)
 ~~~
 
 `# mkinitcpio -p linux-lts`  
-apply change
+for apply change
 
 ### Recreate bootloader with GRUB
 `# vim /etc/default/grub`  
@@ -66,7 +66,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="cryptdevice=/dev/disk/by-uuid/XXXXXXXX-1111-1111-111
 ~~~
 
 `# grub-mkconfig -o /boot/grub/grub.cfg`  
-to apply change
+for apply change
 
 ### Setup openswap
 `# vim /etc/initcpio/hooks/openswap`  
@@ -83,7 +83,7 @@ umount key_device
 ~~~
 
 `# vim /etc/openswap.conf`  
-edit
+edit to
 
 ~~~bash
 #/dev/mapper/cryptswap
@@ -99,7 +99,7 @@ cryptsetup_options="--type luks"
 
 ### Setup fstab
 `# vim /etc/fstab`  
-edit and add
+add a new device
 
 ~~~bash
 # <file system>                             <dir>       <type>      <options>   <dump> <pass>
@@ -118,4 +118,3 @@ UUID=0b97da15-68cd-4462-be39-e5eebcb7091a   none        swap        defaults    
 <p align="center"><span style="font-size:6px" >Copyright © 2002-2021 Judd Vinet, Aaron Griffin and Levente Polyák.</span></p>  
 <p align="center"><span style="font-size:8px" >The Arch Linux name and logo are recognized trademarks. Some rights reserved.</span></p>  
 <p align="center"><span style="font-size:8px" >Linux® is a registered trademark of Linus Torvalds.</span></p>
-
