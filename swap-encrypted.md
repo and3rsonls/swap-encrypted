@@ -1,7 +1,7 @@
 ## Swap Device Encryption With Hibernation
 
 ### Distro
-in this case the [ArchLinux](https://wiki.archlinux.org/title/Installation_guide"archlinux") distro is installed and configured.<br>
+in this case the [ArchLinux](https://wiki.archlinux.org/title/Installation_guide) distro is installed and configured.<br>
 
 ### Used programs
 - cryptsetup (LUKS)
@@ -114,6 +114,6 @@ UUID=0b97da15-68cd-4462-be39-e5eebcb7091a   none        swap        defaults    
 - https://wiki.archlinux.org/index.php?title=Talk:Dm-crypt&oldid=255742#Suspend_to_disk_instructions_are_insecure<br>
 - https://blog.hackeriet.no/lvm-in-luks-with-encrypted-boot-partition-and-suspend-to-disk<br>
 
-<p align="center"><span style="font-size:6px" >Copyright © 2002-2021 Judd Vinet, Aaron Griffin and Levente Polyák.</span></p>
-<p align="center"><span style="font-size:8px" >The Arch Linux name and logo are recognized trademarks. Some rights reserved.</span></p>
+<p align="center"><span style="font-size:6px" >Copyright © 2002-2021 Judd Vinet, Aaron Griffin and Levente Polyák.</span></p>  
+<p align="center"><span style="font-size:8px" >The Arch Linux name and logo are recognized trademarks. Some rights reserved.</span></p>  
 <p align="center"><span style="font-size:8px" >Linux® is a registered trademark of Linus Torvalds.</span></p>
