@@ -108,8 +108,8 @@ UUID=0b97da15-68cd-4462-be39-e5eebcb7091a   none        swap        defaults    
 ~~~
 
 ### Sources
-- https://wiki.archlinux.org/title/Dm-crypt/Swap_encryption<br>
 - https://wiki.archlinux.org/title/Mkinitcpio<br>
+- https://wiki.archlinux.org/title/Dm-crypt/Swap_encryption<br>
 - https://wiki.archlinux.org/title/Persistent_block_device_naming#by-id_and_by-path<br>
 - https://wiki.archlinux.org/index.php?title=Talk:Dm-crypt&oldid=255742#Suspend_to_disk_instructions_are_insecure<br>
 - https://blog.hackeriet.no/lvm-in-luks-with-encrypted-boot-partition-and-suspend-to-disk<br>
