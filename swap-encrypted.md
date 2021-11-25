@@ -1,27 +1,15 @@
-swap encryption
+### swap device encryption with hibernation
 
-###without suspend-to-disk
-# vim /etc/crypttab
-	--->SET
-	---># <name>  <device>     <password>     <options>
-	--->swap      /dev/sdX#    /dev/urandom   swap,cipher=aes-cbc-essiv:sha256,size=256
+#### used programs
 
-# vim /etc/fstab
-	--->SET
-	--->/dev/mapper/swap  none   swap    defaults   0 0
-------------------------------------
+- cryptsetup (LUKS)
+- grub (bootloader)
+- mkinitcpio (initial ramdisk)
+- mkinitcpio-openswap (create a hook file)
 
-###---used programs
-
----cryptsetup (LUKS)
----grub (bootloader)
----mkinitcpio (initial ramdisk)
----mkinitcpio-openswap (create a hook file)
-
-###with suspend-to-disk
-# pacman -Syu --needed cryptsetup
-$ yay -Syu mkinitcpio-openswap
-	--->install programs
+># pacman -Syu --needed cryptsetup
+>$ yay -Syu mkinitcpio-openswap
+>	--->install programs
 
 ###---preparations
 # swapoff /dev/sdX1
@@ -116,3 +104,15 @@ https://wiki.archlinux.org/title/Dm-crypt/Swap_encryption
 https://wiki.archlinux.org/title/Persistent_block_device_naming#by-id_and_by-path
 https://wiki.archlinux.org/index.php?title=Talk:Dm-crypt&oldid=255742#Suspend_to_disk_instructions_are_insecure
 https://blog.hackeriet.no/lvm-in-luks-with-encrypted-boot-partition-and-suspend-to-disk
+
+	
+	#without suspend-to-disk
+# vim /etc/crypttab
+	--->SET
+	---># <name>  <device>     <password>     <options>
+	--->swap      /dev/sdX#    /dev/urandom   swap,cipher=aes-cbc-essiv:sha256,size=256
+
+# vim /etc/fstab
+	--->SET
+	--->/dev/mapper/swap  none   swap    defaults   0 0
+------------------------------------
