@@ -13,7 +13,7 @@ in this case the [Arch Linux](https://wiki.archlinux.org/title/Installation_guid
 `$ yay -S mkinitcpio-openswap`  
 to install openswap
 
-`# swapoff /dev/sdX1`  
+`# swapoff /dev/sdX`  
 umount swap device
 
 `# mkdir -p /etc/initcpio/keys`  
