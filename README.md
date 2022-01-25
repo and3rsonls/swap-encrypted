@@ -10,7 +10,7 @@ in this case the [Arch Linux](https://wiki.archlinux.org/title/Installation_guid
 - AUR mkinitcpio-openswap (create a hook file)
 
 ### Preparations
-`$ yay -S mkinitcpio-openswap`
+`$ yay -S mkinitcpio-openswap`  
 to install openswap
 
 `# swapoff /dev/sdX1`  
@@ -65,7 +65,7 @@ for apply change to linux kernel
 set grub to  
 
 ~~~bash
-GRUB_CMDLINE_LINUX_DEFAULT="cryptdevice=/dev/disk/by-uuid/XXX...(UUID type swap):cryptswap root=/dev/disk/by-uuid/XXX...(UUID type ext4(/)) resume=/dev/disk/by-uuid/XXX...(UUID type crypto_LUKS) ro loglevel=3"
+GRUB_CMDLINE_LINUX_DEFAULT="cryptdevice=/dev/disk/by-uuid/XXX...(UUID type crypto_LUKS):cryptswap root=/dev/disk/by-uuid/XXX...(UUID type ext4(/)) resume=/dev/disk/by-uuid/XXX...(UUID type swap) ro loglevel=3"
 ~~~
 
 `# grub-mkconfig -o /boot/grub/grub.cfg`  
@@ -80,7 +80,7 @@ run_hook ()
 {
 mkdir key_device
 mount /dev/disk/by-uuid/XXX...(UUID type ext4(/)) key_device
-cryptsetup luksOpen --key-file key_device/etc/initcpio/keys/openswapkey.key /dev/disk/by-uuid/XXX...(UUID type swap) cryptswap
+cryptsetup luksOpen --key-file key_device/etc/initcpio/keys/openswapkey.key /dev/disk/by-uuid/XXX...(UUID type crypto_LUKS) cryptswap
 umount key_device
 }
 ~~~
@@ -90,7 +90,7 @@ edit to
 
 ~~~bash
 #/dev/mapper/cryptswap
-swap_device=/dev/disk/by-uuid/XXX...(UUID type crypto_LUKS)
+swap_device=/dev/disk/by-uuid/XXX...(UUID type swap)
 crypt_swap_name=cryptswap
 
 #/dev/sdX root(/)
@@ -107,7 +107,7 @@ add a new device
 ~~~bash
 # <file system>                             <dir>       <type>      <options>   <dump> <pass>
 # /dev/mapper/cryptswap         CRYPT
-UUID=0b97da15-68cd-4462-be39-e5eebcb7091a   none        swap        defaults    0       0
+UUID=XXX...(UUID type swap)                 none        swap        defaults    0       0
 ~~~
 
 ### Sources
