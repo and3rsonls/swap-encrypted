@@ -27,22 +27,22 @@ make a key
 proper permissions and make it real hard to accidentally do something to these files
 
 ### LUKS
-`# cryptsetup luksFormat /dev/sdX1`  
+`# cryptsetup luksFormat /dev/sdX`  
 create luks container
 
-`# cryptsetup luksOpen /dev/sdX1 cryptswap`  
+`# cryptsetup luksOpen /dev/sdX cryptswap`  
 open container
 
 `# mkswap /dev/mapper/cryptswap`  
 make file system swap
 
-`# cryptsetup luksAddKey /dev/sdX1 /etc/initcpio/keys/openswapkey.key`  
+`# cryptsetup luksAddKey /dev/sdX /etc/initcpio/keys/openswapkey.key`  
 add the openswapkey.key
 
 `# cryptsetup luksClose /dev/mapper/cryptswap`  
 close device
 
-`# cryptsetup luksOpen --key-file /etc/initcpio/keys/openswapkey.key /dev/sdX1 cryptswap`  
+`# cryptsetup luksOpen --key-file /etc/initcpio/keys/openswapkey.key /dev/sdX cryptswap`  
 open device with the openswapkey.key
 
 ### Persistent block device naming
