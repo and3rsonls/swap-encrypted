@@ -11,7 +11,7 @@ in this case the [Arch Linux](https://wiki.archlinux.org/title/Installation_guid
 
 ### Preparations
 `$ yay -S mkinitcpio-openswap`  
-to install openswap
+install openswap
 
 `# swapoff /dev/sdX`  
 umount swap device
