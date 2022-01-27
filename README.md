@@ -60,6 +60,10 @@ HOOKS=(consolefont base udev lvm2 keyboard keymap autodetect modconf block fsck 
 `# mkinitcpio -p linux-lts`  
 for apply change to linux kernel
 
+### UUID
+`# blkid` 
+to view device UUID and type
+
 ### Recreate bootloader with GRUB
 `# vim /etc/default/grub`  
 set grub to  
