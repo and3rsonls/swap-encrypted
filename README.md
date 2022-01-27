@@ -65,7 +65,7 @@ for apply change to linux kernel
 
 ### Recreate bootloader with GRUB
 `# vim /etc/default/grub`  
-set grub to  
+setup grub   
 
 ~~~bash
 GRUB_CMDLINE_LINUX_DEFAULT="cryptdevice=/dev/disk/by-uuid/XXX...(UUID type crypto_LUKS):cryptswap root=/dev/disk/by-uuid/XXX...(UUID type ext4(/)) resume=/dev/disk/by-uuid/XXX...(UUID type swap) ro loglevel=3"
@@ -76,7 +76,7 @@ for apply change
 
 ### Setup openswap
 `# vim /etc/initcpio/hooks/openswap`  
-edit hook
+to edit hook
 
 ~~~bash
 run_hook ()
@@ -89,7 +89,7 @@ umount key_device
 ~~~
 
 `# vim /etc/openswap.conf`  
-edit to
+to edit
 
 ~~~bash
 #/dev/mapper/cryptswap
