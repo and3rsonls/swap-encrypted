@@ -49,6 +49,9 @@ open device with the openswapkey.key
 `# ls -l /dev/disk/by-uuid`  
 schemes for persistent naming by-uuid
 
+`# blkid`  
+to view device UUID and type
+
 ### Recreate initial ramdisk
 `# vim /etc/mkinitcpio.conf`  
 adding **openswap** and **encrypt**  
@@ -59,10 +62,6 @@ HOOKS=(consolefont base udev lvm2 keyboard keymap autodetect modconf block fsck 
 
 `# mkinitcpio -p linux-lts`  
 for apply change to linux kernel
-
-### UUID
-`# blkid`  
-to view device UUID and type
 
 ### Recreate bootloader with GRUB
 `# vim /etc/default/grub`  
