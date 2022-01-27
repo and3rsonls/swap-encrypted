@@ -54,7 +54,7 @@ schemes for persistent naming by-uuid
 adding **openswap** and **encrypt**  
 set hooks for [ramdisk](https://wiki.archlinux.org/title/Mkinitcpio)  
 ~~~bash
-HOOKS=(consolefont base udev openswap encrypt resume lvm2 keyboard keymap autodetect modconf block fsck filesystems)
+HOOKS=(consolefont base udev lvm2 keyboard keymap autodetect modconf block fsck openswap encrypt resume filesystems)
 ~~~
 
 `# mkinitcpio -p linux-lts`  
